@@ -24,6 +24,9 @@
     }
     return g + '</g>';
   }
+  /* kartu ilmu: separuh daun dilipat ke garis cermin dan menutup separuh lainnya dengan tepat */
+  var DEMO_LIPAT = '<svg class="demo-lipat" viewBox="-60 -72 120 144" aria-hidden="true"><path d="M0 -62Q-58 0 0 62Z" fill="#2E6B5E" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>' +
+    '<path class="sayap" d="M0 -62Q58 0 0 62Z" fill="#5FA35A" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M0 -70V70" stroke="#7B4B94" stroke-width="3.5" stroke-dasharray="7 5" stroke-linecap="round"/></svg>';
   var LEBAR = [170, 150, 140, 215, 130, 180]; // setengah lebar gambar, untuk batas acak pusat
 
   Adegan.l1 = function () {
@@ -32,13 +35,16 @@
       app.innerHTML = '<div class="layar layar-main">' + UI.kepala(STR.peta.stasiun + ' 1 · ' + STR.l1.judul, '<span id="l1-langkah"></span>') +
         '<div class="kolom-kiri"><div class="kanvas-kartu tinggi kertas"><svg id="cv" viewBox="0 0 ' + W + ' ' + H + '" tabindex="0" role="application" aria-label="Kanvas garis cermin. Panah kiri dan kanan menggeser garis, Enter untuk cek."></svg></div></div>' +
         '<div class="kolom-kanan">' + UI.gelembung() +
-        '<div class="panel kertas"><div class="titik-langkah" id="l1-titik"></div><div class="contoh-sumbu">' + IKON_JENIS.sim + '<p class="panel-teks">' + STR.l1.ingat + '</p></div></div>' +
+        '<div class="panel kertas"><div class="l1-label">' + STR.l1.koleksi + '</div><div class="ubin-langkah" id="l1-titik"></div><div class="contoh-sumbu kartu-ilmu">' + DEMO_LIPAT + '<p class="panel-teks">' + STR.l1.ingat + '</p></div></div>' +
         '<div class="aksi">' + UI.tombol('l1-hint', STR.tombol.petunjuk, 'krem', IKON.lampu) + UI.tombol('l1-cek', STR.tombol.cekSumbu, 'hijau besar', IKON.cek) + '</div></div></div>';
       var cv = $('#cv');
 
       function titik() {
         $('#l1-langkah').textContent = (urut + 1) + '/6';
-        $('#l1-titik').innerHTML = [0, 1, 2, 3, 4, 5].map(function (j) { return '<i class="' + (j < urut ? 'ok' : j === urut ? 'kini' : '') + '"></i>'; }).join('');
+        $('#l1-titik').innerHTML = [0, 1, 2, 3, 4, 5].map(function (j) {
+          var st = j < urut ? 'ok' : j === urut ? 'kini' : '';
+          return '<span class="ubin ' + st + '" aria-label="' + STR.l1.nama[j] + (st === 'ok' ? ' (selesai)' : '') + '"><svg viewBox="-30 20 460 440" aria-hidden="true">' + gambar(j, 200) + '</svg>' + (st === 'ok' ? '<b>' + IKON.cek + '</b>' : '') + '</span>';
+        }).join('');
       }
       function baru() {
         var L = LEBAR[urut];

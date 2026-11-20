@@ -116,12 +116,12 @@ var Potongan = (function () {
   }
   /* Cari satu potongan bantuan yang membuat timbangan rata (untuk petunjuk ke-3) */
   function solusi(L, tolTambah) {
-    var M = timbang(L).M, sisi = M > 0 ? -1 : 1, calon = [['sun', 2], ['sq', 2], ['star', 2], ['sun', 1]];
+    var M = timbang(L).M, sisi = M > 0 ? -1 : 1, calon = [['sun', 2], ['sq', 2], ['star', 2], ['hex', 2], ['sun', 1], ['sq', 1], ['sun', 0]];
     for (var c = 0; c < calon.length; c++) {
-      for (var s = 70; s <= 150; s += 10) {
+      for (var s = 70; s <= 170; s += 10) {
         var p = { k: calon[c][0], t: calon[c][1], s: s, y: 170 };
         var dx = -M / berat(p);
-        if (Math.abs(dx) >= 90 && Math.abs(dx) <= BERAT.pusatX - s / 2 - 6 && Math.sign(dx) === sisi) {
+        if (Math.abs(dx) >= 70 && Math.abs(dx) <= BERAT.pusatX - s / 2 - 6 && Math.sign(dx) === sisi) {
           p.x = BERAT.pusatX + dx;
           // pilih tinggi yang tidak menumpuk potongan lain (tinggi tidak memengaruhi momen)
           var ys = [170, 90, 250, 60, 280].filter(function (y) { return !L.some(function (q) { return Math.abs(q.x - p.x) < (q.s + s) * 0.45 && Math.abs(q.y - y) < (q.s + s) * 0.45; }); });

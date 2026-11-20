@@ -4,6 +4,7 @@ var STR = {
   judul: 'Timbangan Rupa',
   subjudul: 'Lab Keseimbangan Desain',
   mapel: 'Seni Rupa',
+  jenisMedia: 'Lab Maya',
   muat: 'Menyiapkan galeri...',
   putar: 'Putar perangkatmu ke posisi mendatar, ya.',
   mulai: 'Mulai',
@@ -14,7 +15,7 @@ var STR = {
     petunjuk: 'Petunjuk', cekSumbu: 'Cek sumbu', selesai: 'Selesai', hapusTerakhir: 'Hapus terakhir',
     warnaKuas: 'Warna kuas', lanjut: 'Lanjut', pajang: 'Pajang', peta: 'Peta Galeri',
     besar: 'Besar', kecil: 'Kecil', warna: 'Warna', putar: 'Putar', salin: 'Salin', hapus: 'Hapus',
-    hasil: 'Hasil Belajarku', mainLagi: 'Main lagi', cetak: 'Cetak sertifikat', guru: 'Catatan untuk Guru',
+    hasil: 'Hasil Belajarku', mainLagi: 'Ulangi lab', cetak: 'Cetak sertifikat', guru: 'Catatan untuk Guru',
     sebelum: 'Sebelumnya', berikut: 'Berikutnya', ya: 'Ya, hapus', batal: 'Batal'
   },
   kelompok: { alam: 'Alam', budaya: 'Budaya', bentuk: 'Bentuk' },
@@ -27,7 +28,7 @@ var STR = {
     bantuan: 'Mode Bantuan (pola titik berat)', kurangi: 'Kurangi animasi', baca: 'Bacakan otomatis kata-kata Mira',
     hapus: 'Hapus semua progres', yakin: 'Hapus semua bintang dan karya di galeri?',
     terhapus: 'Progres sudah dihapus.',
-    fsGagal: 'Layar penuh tidak diizinkan di sini. Buka gim di tab sendiri, atau tekan F11 di komputer.'
+    fsGagal: 'Layar penuh tidak diizinkan di sini. Buka Lab Maya di tab sendiri, atau tekan F11 di komputer.'
   },
 
   // Peta stasiun
@@ -59,6 +60,7 @@ var STR = {
     nama: ['kupu-kupu', 'daun', 'gunungan wayang', 'rumah joglo', 'layang-layang', 'rumah'],
     mulai: 'Geser garis ungu ke tengah {n}, lalu tekan Cek.',
     belumTaruh: 'Sentuh gambarnya dulu untuk menaruh garis.',
+    koleksi: 'Gambar yang diperiksa',
     ingat: '<b>Simetris</b> artinya setangkup: kalau dilipat di garis cermin, kiri dan kanan sama persis.',
     h1: 'Cari tempat yang sama persis di kiri dan kanan.',
     h2: 'Garis cermin ada di dalam pita ungu.',
@@ -83,6 +85,7 @@ var STR = {
     tebakBenar: 'Tebakanmu benar! Sekarang pilih kesimpulan yang tepat.',
     tebakSalah: 'Lihat timbangannya! Hasilnya {r}. Pilih kesimpulan yang tepat.',
     kesimpulanSalah: 'Hampir! Lihat lagi timbangannya, lalu coba kalimat lain.',
+    metode: ['Tebak', 'Uji', 'Amati', 'Simpulkan'],
     beda: 'Yang berbeda hanya: {v}',
     terkunci: 'Hal lain terkunci, sama di kiri dan kanan.'
   },
@@ -218,24 +221,24 @@ var STR = {
     kolom: ['Stasiun', 'Tujuan (tag)', 'Bintang', 'Petunjuk dipakai', 'Catatan'],
     tag: ['TP1 simetris', 'TP2 berat-visual', 'TP3 asimetris', 'TP4 radial', 'TP5-TP6 menyusun, apresiasi'],
     l2: 'Tebakan awal benar {a} dari 4; kesimpulan benar tanpa coba ulang {b} dari 4.',
-    model: 'Timbangan Rupa memakai model sederhana: berat = luas x faktor warna x faktor corak, pengaruh = berat x jarak dari tengah. Keseimbangan dalam seni juga soal rasa; seniman kadang sengaja tidak seimbang untuk kesan bergerak. Diskusikan hal ini setelah bermain.',
+    model: 'Timbangan Rupa memakai model sederhana: berat = luas x faktor warna x faktor corak, pengaruh = berat x jarak dari tengah. Keseimbangan dalam seni juga soal rasa; seniman kadang sengaja tidak seimbang untuk kesan bergerak. Diskusikan hal ini setelah bereksperimen.',
     saran: 'Saran tindak lanjut: minta murid mencari benda simetris, asimetris, dan radial di kelas, lalu menjelaskannya dengan kalimat "seimbang ... karena ...".',
-    belum: 'belum dimainkan',
+    belum: 'belum dikerjakan',
     salah: 'Kesalahan yang muncul: ',
     tanpaSalah: 'Tidak ada kesalahan tercatat',
     bacakan: 'Bacakan'
   },
 
   // Panel judul
-  info: '<h2>Informasi</h2><p><b>Tujuan Pembelajaran:</b> Murid mampu mengenali dan menyusun keseimbangan simetris, asimetris, dan radial dengan memperhatikan ukuran, warna, jumlah, dan letak unsur rupa.</p><p><b>Mapel:</b> Seni Rupa (kelas 3-4)<br><b>Topik:</b> Keseimbangan dalam Desain</p><h3>Panduan Gim</h3><ol><li>Baca pesanan Mira di gelembung.</li><li>Ketuk potongan di rak, lalu ketuk kanvas untuk menaruhnya. Seret untuk memindahkan.</li><li>Amati Timbangan Rupa: miring ke sisi yang terasa lebih berat.</li><li>Bila timbangan rata, tekan Pajang. Tombol Petunjuk selalu siap membantu.</li></ol><h3>Papan ketik</h3><p>Tab untuk berpindah tombol, Enter untuk memilih. Di kanvas: panah menggeser, Enter menaruh potongan, Spasi memilih potongan berikutnya, Delete menghapus, + dan - mengubah ukuran, W mengganti warna, R memutar.</p>',
-  ref: '<h2>Referensi</h2><h3>Sumber materi</h3><ul><li>Badan Standar, Kurikulum, dan Asesmen Pendidikan (2025). <i>Keputusan Kepala BSKAP Nomor 046/H/KR/2025 tentang Capaian Pembelajaran.</i> Kementerian Pendidikan Dasar dan Menengah Republik Indonesia.</li><li>Dr. Rizki Taufik Rahman, S.Sm., M.Pd, dkk. (2025). <i>Panduan Mata Pelajaran Seni Rupa Fase A-F.</i> Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kementerian Pendidikan Dasar dan Menengah Republik Indonesia.</li></ul><h3>Keterangan Penggunaan AI</h3><p>Kode gim ini dibuat dengan bantuan AI (Claude, Anthropic). Ilustrasi dan musik latar dibuat pengembang dengan bantuan AI generatif. Pengembang menentukan tujuan, alur, dan isi pembelajaran serta menyuntingnya. Pemanfaatan AI mengacu pada: Purwarianti, A., dkk. (2025). <i>Panduan Pemanfaatan Kecerdasan Artifisial untuk Guru PAUD, Pendidikan Dasar, dan Pendidikan Menengah.</i> Jakarta: Pusat Kurikulum dan Pembelajaran &amp; Pusat Standar dan Kebijakan Pendidikan.</p>',
+  info: '<h2>Informasi</h2><p><b>Tujuan Pembelajaran:</b> Murid mampu mengenali dan menyusun keseimbangan simetris, asimetris, dan radial dengan memperhatikan ukuran, warna, jumlah, dan letak unsur rupa.</p><p><b>Mapel:</b> Seni Rupa (kelas 3-4)<br><b>Topik:</b> Keseimbangan dalam Desain</p><h3>Panduan Lab</h3><ol><li>Baca pesanan Mira di gelembung.</li><li>Ketuk potongan di rak, lalu ketuk kanvas untuk menaruhnya. Seret untuk memindahkan.</li><li>Amati Timbangan Rupa: miring ke sisi yang terasa lebih berat.</li><li>Bila timbangan rata, tekan Pajang. Tombol Petunjuk selalu siap membantu.</li></ol><h3>Papan ketik</h3><p>Tab untuk berpindah tombol, Enter untuk memilih. Di kanvas: panah menggeser, Enter menaruh potongan, Spasi memilih potongan berikutnya, Delete menghapus, + dan - mengubah ukuran, W mengganti warna, R memutar.</p>',
+  ref: '<h2>Referensi</h2><h3>Sumber materi</h3><ul><li>Badan Standar, Kurikulum, dan Asesmen Pendidikan (2025). <i>Keputusan Kepala BSKAP Nomor 046/H/KR/2025 tentang Capaian Pembelajaran.</i> Kementerian Pendidikan Dasar dan Menengah Republik Indonesia.</li><li>Dr. Rizki Taufik Rahman, S.Sm., M.Pd, dkk. (2025). <i>Panduan Mata Pelajaran Seni Rupa Fase A-F.</i> Badan Standar, Kurikulum, dan Asesmen Pendidikan, Kementerian Pendidikan Dasar dan Menengah Republik Indonesia.</li></ul><h3>Keterangan Penggunaan AI</h3><p>Kode Lab Maya ini dibuat dengan bantuan AI (Claude, Anthropic). Ilustrasi dan musik latar dibuat pengembang dengan bantuan AI generatif. Pengembang menentukan tujuan, alur, dan isi pembelajaran serta menyuntingnya. Pemanfaatan AI mengacu pada: Purwarianti, A., dkk. (2025). <i>Panduan Pemanfaatan Kecerdasan Artifisial untuk Guru PAUD, Pendidikan Dasar, dan Pendidikan Menengah.</i> Jakarta: Pusat Kurikulum dan Pembelajaran &amp; Pusat Standar dan Kebijakan Pendidikan.</p>',
   dev: [
     '<img src="assets/img/jamaluddin.jpg" alt="Foto Jamaluddin"><h2>Jamaluddin</h2><p>UPTD SMPN 2 Robatal<br>jamaluddin551@guru.smp.belajar.id</p><p class="ig"><img src="assets/img/instagram.webp" alt="Instagram"><span>tretanjamal</span></p><p>Tahun Pembuatan: 2026</p><h3>Prestasi dan Pengalaman</h3><ul><li>Narasumber Digitalisasi Pembelajaran Kemendikdasmen</li><li>Guru Pejuang Digital</li><li>Juara 1 Lomba Inovasi Guru SMP Kabupaten Sampang 2026</li><li>Juara 1 Guru Inspiratif SMP Kabupaten Sampang 2026</li><li>Komunitas Belajar Terbaik BLPT Kemendikdasmen 2024</li></ul>',
     '<img src="assets/img/abdul-karim.jpg" alt="Foto Abdul Karim"><h2>Abdul Karim, S.Pd.SD</h2><p>Guru UPTD SDN JELGUNG 1</p>'
   ],
   jurnal: {
     judul: 'Jurnal Galeri',
-    kosong: 'Belum ada catatan. Mainkan Stasiun 2 (Percobaan Berat) dulu, ya.',
+    kosong: 'Belum ada catatan. Kerjakan Stasiun 2 (Percobaan Berat) dulu, ya.',
     baris: '<b>{q}</b>: tebakanku {g}, hasilnya {r}. {c}'
   },
   pengembang: 'Jamaluddin (UPTD SMPN 2 Robatal) dan Abdul Karim, S.Pd.SD (UPTD SDN JELGUNG 1)'

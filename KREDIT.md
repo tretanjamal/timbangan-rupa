@@ -1,6 +1,6 @@
 # Kredit: Timbangan Rupa: Lab Keseimbangan Desain
 - Pengembang: Jamaluddin (UPTD SMPN 2 Robatal) dan Abdul Karim, S.Pd.SD (UPTD SDN JELGUNG 1), 2026.
-- Kode gim: dibuat dengan bantuan AI (Claude, Anthropic), disunting pengembang. Versi 5: penataan ulang kode (engine/scenes/data), tampilan kolase kertas, uji otomatis.
+- Kode Lab Maya: dibuat dengan bantuan AI (Claude, Anthropic), disunting pengembang. Versi 6: tampilan meja lab (dinding galeri, kanvas berbingkai, timbangan dua piring dengan beban penanda), alur metode ilmiah di Stasiun 2. Versi 5: penataan ulang kode (engine/scenes/data), tampilan kolase kertas, uji otomatis.
 - Ilustrasi (Mira 3 ekspresi, latar galeri, key art, pohon, joglo, kawung, gunungan, tampah) dan musik latar: dibuat pengembang dengan bantuan AI generatif. Isi tanggal dan prompt tiap aset dari catatan Anda.
 - Pengolahan: latar dihapus, ukuran diperkecil, WebP; musik dijadikan mono 80 kbps.
 - Ikon Instagram: logo milik Instagram (Meta Platforms, Inc.), dipakai hanya sebagai penanda akun pengembang, tanpa tautan.

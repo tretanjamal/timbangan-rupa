@@ -15,6 +15,10 @@ Adegan.l2 = function () {
     jalan();
   });
 
+  /* penanda langkah metode ilmiah: Tebak -> Uji -> Amati -> Simpulkan */
+  function metode(n) {
+    $$('#l2-metode li').forEach(function (li, j) { li.className = j < n ? 'ok' : j === n ? 'kini' : ''; });
+  }
   function jalan() {
     var e = PERCOBAAN[i], L = e.kiri.concat(e.kanan), hasil = Potongan.timbang(L), jawab = hasil.ok ? 0 : Math.sign(hasil.M);
     $('#l2-langkah').textContent = (i + 1) + '/4';
@@ -22,8 +26,9 @@ Adegan.l2 = function () {
       L.map(function (p) { return Potongan.svg(p, null, { polos: true }); }).join('') +
       '<text class="label-kanvas" x="150" y="318" text-anchor="middle">' + e.label[0] + '</text><text class="label-kanvas" x="450" y="318" text-anchor="middle">' + e.label[1] + '</text>';
     tb.atur({ ok: true, M: 0, sudut: 0 }, false);
-    $('#l2-panel').innerHTML = '<p class="panel-teks"><b>' + (e.kunci ? isi(STR.l2.beda, { v: e.v }) : e.beda) + '</b></p>' + (e.kunci ? '<p class="kunci-teks"><svg viewBox="-16 -16 32 32" aria-hidden="true">' + IKON.gembok + '</svg>' + STR.l2.terkunci + '</p>' : '');
+    $('#l2-panel').innerHTML = '<ol class="metode" id="l2-metode" aria-label="Langkah percobaan">' + STR.l2.metode.map(function (m, j) { return '<li>' + m + '</li>'; }).join('') + '</ol><p class="panel-teks"><b>' + (e.kunci ? isi(STR.l2.beda, { v: e.v }) : e.beda) + '</b></p>' + (e.kunci ? '<p class="kunci-teks"><svg viewBox="-16 -16 32 32" aria-hidden="true">' + IKON.gembok + '</svg>' + STR.l2.terkunci + '</p>' : '');
     $('#l2-pilih').innerHTML = [-1, 0, 1].map(function (g) { return UI.tombol('g' + (g + 1), STR.l2.tebak[g + 1], 'jingga tebak', ARAH[g + 1], 'data-g="' + g + '"'); }).join('');
+    metode(0);
     UI.kata(isi(STR.l2.tanya, { n: i + 1, v: e.v.toLowerCase() }), 'berpikir');
     Diam.isyarat = function () { UI.tunjuk($('#g1')); };
     if (i === 0 && !Game.S.main[1]) setTimeout(function () { UI.tunjuk($('#g1')); }, 900);
@@ -32,6 +37,7 @@ Adegan.l2 = function () {
       var b = ev.target.closest('[data-g]'); if (!b) return;
       var g = +b.dataset.g, benar = g === jawab;
       tb.atur(hasil, true);
+      metode(1); setTimeout(function () { metode(2); }, 450);
       if (benar) { tebakBenar++; Suara.benar(); UI.konfeti(Layar.pusat(b), 12); } else Suara.lembut();
       Game.S.jurnal[i] = { q: e.v, g: STR.l2.tebakKecil[g + 1], r: STR.l2.tebakKecil[jawab + 1], c: e.benar, ok: benar };
       Game.simpan();
@@ -40,6 +46,7 @@ Adegan.l2 = function () {
     };
 
     function kesimpulan() {
+      metode(3);
       var coba = 0, kartu = kocok([e.benar].concat(e.pengecoh));
       $('#l2-pilih').innerHTML = kartu.map(function (k, j) { return '<button class="btn kartu-kalimat" data-k="' + j + '">' + k + '</button>'; }).join('');
       Diam.isyarat = function () { UI.tunjuk($('#tb')); };
@@ -51,6 +58,7 @@ Adegan.l2 = function () {
           Suara.benar(); UI.konfeti(Layar.pusat(b), 16);
           UI.kata(e.benar, 'bangga', 'hore');
           $('#l2-pilih').onclick = null;
+          metode(4);
           $('#l2-pilih').innerHTML = '<p class="simpul-ok">' + IKON.cek + '<span>' + e.benar + '</span></p>' + UI.tombol('l2-lanjut', STR.tombol.lanjut, 'hijau besar', IKON.lanjut);
           $('#l2-lanjut').focus();
           Diam.isyarat = function () { UI.tunjuk($('#l2-lanjut')); };

@@ -10,6 +10,17 @@ Adegan.muat = function () {
   });
 };
 
+/* Dua karya contoh di bingkai dinding layar judul: simetris (kiri) dan radial (kanan) */
+function karyaJudul() {
+  var P = function (k, t, sz, x, y, a, fl) { return Potongan.svg({ k: k, t: t, s: sz, x: x, y: y, a: a || 0, fl: fl || 1 }, null, { polos: true }); };
+  var sim = P('kite', 2, 92, 100, 64) + P('bird', 1, 44, 36, 40) + P('bird', 1, 44, 164, 40, 0, -1) + P('flower', 0, 36, 40, 104) + P('flower', 0, 36, 160, 104);
+  var rad = '';
+  for (var j = 0; j < 8; j++) { var a = j * Math.PI / 4; rad += P('leaf', j % 2 ? 1 : 2, 34, 100 + 42 * Math.cos(a), 68 + 42 * Math.sin(a), j * 45 + 90); }
+  rad += P('sun', 1, 40, 100, 68);
+  return '<svg class="karya-dinding kd-kiri" viewBox="0 0 200 136" aria-hidden="true"><rect width="200" height="136" fill="url(#serat)"/>' + sim + '</svg>' +
+    '<svg class="karya-dinding kd-kanan" viewBox="0 0 200 136" aria-hidden="true"><rect width="200" height="136" fill="url(#serat)"/>' + rad + '</svg>';
+}
+
 Adegan.judul = function () {
   UI.ganti(function (app) {
     var kertas = '';
@@ -17,7 +28,8 @@ Adegan.judul = function () {
     app.innerHTML = '<div class="layar layar-judul">' + kertas +
       '<div class="judul-kontrol">' + UI.kontrol() + '</div>' +
       '<div class="mira judul-mira"><img src="' + ASET.img.miraBangga + '" alt="Mira si merak"></div>' +
-      '<div class="judul-kartu kertas"><h1 class="logo">' + STR.judul + '</h1><p>' + STR.subjudul + ' · ' + STR.mapel + '</p></div>' +
+      karyaJudul() +
+      '<div class="judul-kartu kertas"><span class="pita-lab">' + STR.jenisMedia + '</span><h1 class="logo">' + STR.judul + '</h1><p>' + STR.subjudul + ' · ' + STR.mapel + '</p></div>' +
       UI.tombol('j-mulai', Game.totalBintang() ? STR.lanjutMain : STR.mulai, 'hijau raksasa', IKON.lanjut) +
       '<nav class="judul-menu">' +
       UI.tombol('j-info', STR.tombol.info, 'ungu', IKON.info) + UI.tombol('j-ref', STR.tombol.ref, 'ungu', IKON.buku) +

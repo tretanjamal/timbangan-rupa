@@ -2,7 +2,7 @@
 
 Lab Maya Seni Rupa untuk SD kelas 3-4. Bersama Mira si merak, murid menata potongan kertas di Galeri Kelas sambil membaca **Timbangan Rupa** yang miring ke sisi yang terasa lebih berat. Murid menemukan bahwa ukuran, warna, jumlah, dan letak memengaruhi berat visual, lalu membuat karya **simetris** (setangkup), **asimetris** (tidak kembar tetapi seimbang), dan **radial** (memancar dari tengah).
 
-**Mainkan:** https://tretanjamal.github.io/timbangan-rupa/
+**Buka Lab Maya:** https://tretanjamal.github.io/timbangan-rupa/
 
 ## Isi
 1. Cari Sumbu: garis cermin dan Kuas Cermin
